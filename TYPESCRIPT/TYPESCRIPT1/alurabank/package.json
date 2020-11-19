@@ -1,0 +1,15 @@
+{
+  "name": "estela",
+  "version": "1.0.0",
+  "description": "app estudo TYPESCRIPT",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "tsc"
+  },
+  "author": "Estela de Oliveira",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^2.3.2"
+  }
+}
