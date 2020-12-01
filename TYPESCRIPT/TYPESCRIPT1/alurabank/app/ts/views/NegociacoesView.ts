@@ -1,46 +1,38 @@
-class NegociacoesView {
+namespace Views {
 
-  private _elemento: Element;
+    export class NegociacoesView extends Views.View<Negociacoes> {
 
-  constructor(seletor: string) {
+        template(model: Negociacoes): string {
 
-      this._elemento = document.querySelector(seletor);
-  }
+            return `
+            <table class="table table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th>DATA</th>
+                        <th>QUANTIDADE</th>
+                        <th>VALOR</th>
+                        <th>VOLUME</th>
+                    </tr>
+                </thead>
 
-  update(model: Negociacoes): void {
+                <tbody>
+                    ${model.paraArray().map(negociacao => 
+                        `
+                            <tr>
+                                <td>${negociacao.data.getDate()}/${negociacao.data.getMonth() +1}/${negociacao.data.getFullYear()}</td>
+                                <td>${negociacao.quantidade}</td>
+                                <td>${negociacao.valor}</td>
+                                <td>${negociacao.volume}</td>
+                            <tr>
+                        `   
+                    ).join('')}            
+                </tbody>
 
-      this._elemento.innerHTML = this.template(model);
-  }
+                <tfoot>
+                </tfoot>
+            </table> 
+            `;
+        }
+    }
 
-  template(model: Negociacoes): string {
-
-      return `
-      <table class="table table-hover table-bordered">
-          <thead>
-              <tr>
-                  <th>DATA</th>
-                  <th>QUANTIDADE</th>
-                  <th>VALOR</th>
-                  <th>VOLUME</th>
-              </tr>
-          </thead>
-
-          <tbody>
-              ${model.paraArray().map(negociacao => 
-                   `
-                      <tr>
-                          <td>${negociacao.data.getDate()}/${negociacao.data.getMonth() +1}/${negociacao.data.getFullYear()}</td>
-                          <td>${negociacao.quantidade}</td>
-                          <td>${negociacao.valor}</td>
-                          <td>${negociacao.volume}</td>
-                      <tr>
-                   `   
-              ).join('')}            
-          </tbody>
-
-          <tfoot>
-          </tfoot>
-      </table> 
-      `;
-  }
 }

@@ -1,1 +1,9 @@
 /node_modules
+
+tricks.txt/
+
+*tricks.txt
+
+.tricks.txt
+
+/tricks.txt

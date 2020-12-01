@@ -1,20 +1,11 @@
-class MensagemView {
+namespace Views {
 
-    private _elemento: Element
+    export class MensagemView extends Views.View<string> {
 
-    constructor(seletor: string) {
-        
-        this._elemento = document.querySelector(seletor);
-    }
+        template(model: string): string {
 
-    udapte(model: string){
-        
-        this._elemento.innerHTML = this.template(model);
-    }
+            return `<p class="alert alert-info">${model}</p>`;
+        }
 
-    template(model: string) {
-
-        return `
-        <p class="alert alert-info">${model}</p>`
     }
 }
