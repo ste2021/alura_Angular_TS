@@ -20,5 +20,5 @@ The Angular CLI includes a server, so that you can build and serve your app loca
 Navigate to the workspace folder, such as my-app.
 
 ## Run the following command:
- ``cd my-app ``
+ ``cd my-app `` <br>
 ``ng serve --open``
