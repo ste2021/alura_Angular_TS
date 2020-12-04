@@ -1,4 +1,4 @@
-# AluraPic -  App made by Angular CLI <img src="https://github.com/ste2021/images-icons/blob/master/iconfinder_angular-js_3069652.png" width=20 height=22 />
+# AluraPic -  App made by Angular CLI <img src="https://github.com/ste2021/images-icons/blob/master/iconfinder_angular-js_3069652.png" width=22 height=24 />
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.7.
 
