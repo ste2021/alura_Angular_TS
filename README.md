@@ -3,7 +3,7 @@
 
 #### Tutoring done by [Estela de Oliveira](https://github.com/ste2021)
 
-## [Angular]('https://angular.io/docs') - First Steps  <img src="https://github.com/ste2021/images-icons/blob/master/iconfinder_angular-js_3069652.png" width=32 height=30 />
+## <img src="https://github.com/ste2021/images-icons/blob/master/iconfinder_angular-js_3069652.png" width=32 height=30 /> [Angular]('https://angular.io/docs') - First Steps  
 
 #### <img src="https://github.com/ste2021/images-icons/blob/master/icons8-nodejs.svg" width=35 height=40 /> First you need to have Node JS installed, start by running the following command in the terminal:
 
