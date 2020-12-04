@@ -6,6 +6,13 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ```ng serve --open```
 
+### In case of error: "ERROR in node_modules/rxjs", run this code:
+
+``npm install rxjs@6.0.0 --save``
+
+### Repeat the code to run the project
+
+```ng serve --open```
 
 ## Development server
 
