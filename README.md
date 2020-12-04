@@ -1,6 +1,8 @@
 
 # Typescript & Angular - Estudos Alura
 
+#### Tutoring done by [Estela de Oliveira](https://github.com/ste2021)
+
 ## [Angular]('https://angular.io/docs') - First Steps 
 
 #### [*] First you need to have Node JS installed, start by running the following command in the terminal:
