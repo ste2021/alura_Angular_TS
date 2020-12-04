@@ -5,7 +5,7 @@
 
 ## [Angular]('https://angular.io/docs') - First Steps 
 
-#### [*] First you need to have Node JS <img src="https://github.com/ste2021/images-icons/blob/master/icons8-nodejs.svg" width=24 height=22 />installed, start by running the following command in the terminal:
+#### [*] First you need to have Node JS <img src="https://github.com/ste2021/images-icons/blob/master/icons8-nodejs.svg" width=24 height=25 />installed, start by running the following command in the terminal:
 
 ``npm install -g @ angular / cli``
 
