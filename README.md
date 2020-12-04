@@ -3,7 +3,7 @@
 
 ## Angular - First Steps 
 
-#### [_] First you need to have Node JS installed, start by running the following command in the terminal:
+#### [*] First you need to have Node JS installed, start by running the following command in the terminal:
 
 ``npm install -g @ angular / cli``
 
