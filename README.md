@@ -11,3 +11,12 @@ If you want a specific version, put it at the end of the cli, otherwise the last
 
 ### Run the CLI command ng new and provide the name my-app, as shown here:
 ```ng new my-app```
+
+#### Run the application
+
+The Angular CLI includes a server, so that you can build and serve your app locally.
+Navigate to the workspace folder, such as my-app.
+
+## Run the following command:
+ ``cd my-app ``
+``ng serve --open``
