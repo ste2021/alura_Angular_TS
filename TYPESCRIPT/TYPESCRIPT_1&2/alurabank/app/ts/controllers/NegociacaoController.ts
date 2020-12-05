@@ -18,6 +18,8 @@ export class NegociacaoController {
     }
 
     adiciona(event: Event) {
+       
+      
 
         event.preventDefault();
 
@@ -39,6 +41,8 @@ export class NegociacaoController {
 
         this._negociacoesView.update(this._negociacoes);
         this._mensagemView.update('Negociação adicionada com sucesso!');
+
+        
     }
 
     private _ehDiaUtil(data: Date) {
