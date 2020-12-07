@@ -6,23 +6,24 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 exports.__esModule = true;
-exports.View = void 0;
+exports.Negociacoes = void 0;
 var index_1 = require("../helpers/decorators/index");
-var View = /** @class */ (function () {
-    function View(seletor, escapar) {
-        if (escapar === void 0) { escapar = false; }
-        this._elemento = $(seletor);
-        this._escapar = escapar;
+var Negociacoes = /** @class */ (function () {
+    function Negociacoes() {
+        this._negociacoes = [];
     }
-    View.prototype.update = function (model) {
-        var template = this.template(model);
-        if (this._escapar)
-            template = template.replace(/<script>[\s\S]*?<\/script>/g, '');
-        this._elemento.html(template);
+    Negociacoes.prototype.adiciona = function (negociacao) {
+        this._negociacoes.push(negociacao);
+    };
+    Negociacoes.prototype.paraArray = function () {
+        return [].concat(this._negociacoes);
     };
     __decorate([
         index_1.logarTempoDeExecucao(true)
-    ], View.prototype, "update");
-    return View;
+    ], Negociacoes.prototype, "adiciona");
+    __decorate([
+        index_1.logarTempoDeExecucao(true)
+    ], Negociacoes.prototype, "paraArray");
+    return Negociacoes;
 }());
-exports.View = View;
+exports.Negociacoes = Negociacoes;
