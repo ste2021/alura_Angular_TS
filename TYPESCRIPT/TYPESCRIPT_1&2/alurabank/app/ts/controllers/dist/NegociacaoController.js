@@ -10,6 +10,7 @@ exports.NegociacaoController = void 0;
 var index_1 = require("../views/index");
 var index_2 = require("../models/index");
 var index_3 = require("../helpers/decorators/index");
+var timer = 0;
 var NegociacaoController = /** @class */ (function () {
     function NegociacaoController() {
         this._negociacoes = new index_2.Negociacoes();
@@ -31,6 +32,30 @@ var NegociacaoController = /** @class */ (function () {
     };
     NegociacaoController.prototype._ehDiaUtil = function (data) {
         return data.getDay() != DiaDaSemana.Sabado && data.getDay() != DiaDaSemana.Domingo;
+    };
+    NegociacaoController.prototype.importaDados = function () {
+        var _this = this;
+        //pr saber se der erro no status da chamada
+        function isOk(res) {
+            if (res.ok) {
+                return res;
+            }
+            else {
+                throw new Error(res.statusText);
+            }
+        }
+        clearTimeout(timer);
+        timer = setTimeout(function () {
+        }, 500);
+        fetch('http://localhost:8080/dados')
+            .then(function (res) { return isOk(res); })
+            .then(function (res) { return res.json(); })
+            .then(function (dados) {
+            dados
+                .map(function (dado) { return new index_2.Negociacao(new Date(), dado.vezes, dado.montante); })
+                .forEach(function (negociacao) { return _this._negociacoes.adiciona(negociacao); });
+            _this._negociacoesView.update(_this._negociacoes);
+        })["catch"](function (err) { return console.log(err.message); });
     };
     __decorate([
         index_3.domInject('#data')
