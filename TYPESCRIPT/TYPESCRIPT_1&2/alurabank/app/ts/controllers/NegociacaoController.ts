@@ -1,7 +1,7 @@
 import { NegociacoesView, MensagemView } from '../views/index';
 import { Negociacao, Negociacoes } from '../models/index';
-import { domInject } from '../helpers/decorators/index';
-import { NegociacaoParcial } from '../models/NegociacaoParcial';
+import { domInject, throttle } from '../helpers/decorators/index';
+import { NegociacaoParcial } from '../models/index';
 
 let timer = 0;
 
@@ -25,11 +25,9 @@ export class NegociacaoController {
         this._negociacoesView.update(this._negociacoes);
     }
 
-    adiciona(event: Event) {
+    adiciona() {
        
-              event.preventDefault();
-
-        let data = new Date(this._inputData.val().replace(/-/g, ','));
+         let data = new Date(this._inputData.val().replace(/-/g, ','));
 
         if(!this._ehDiaUtil(data)) {
 
@@ -55,6 +53,7 @@ export class NegociacaoController {
 
         return data.getDay() != DiaDaSemana.Sabado && data.getDay() != DiaDaSemana.Domingo;
     }
+    @throttle(500)
     importaDados (){
         //pr saber se der erro no status da chamada
         function isOk(res: Response){
@@ -65,9 +64,6 @@ export class NegociacaoController {
             }
         }
 
-            clearTimeout(timer);
-              timer = setTimeout(() =>{
-        }, 500)
 
         fetch('http://localhost:8080/dados')
         .then(res => isOk(res))

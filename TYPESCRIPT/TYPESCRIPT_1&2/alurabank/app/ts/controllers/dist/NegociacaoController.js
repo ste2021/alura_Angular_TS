@@ -18,8 +18,7 @@ var NegociacaoController = /** @class */ (function () {
         this._mensagemView = new index_1.MensagemView('#mensagemView');
         this._negociacoesView.update(this._negociacoes);
     }
-    NegociacaoController.prototype.adiciona = function (event) {
-        event.preventDefault();
+    NegociacaoController.prototype.adiciona = function () {
         var data = new Date(this._inputData.val().replace(/-/g, ','));
         if (!this._ehDiaUtil(data)) {
             this._mensagemView.update('Somente negociações em dias úteis, por favor!');
@@ -44,9 +43,6 @@ var NegociacaoController = /** @class */ (function () {
                 throw new Error(res.statusText);
             }
         }
-        clearTimeout(timer);
-        timer = setTimeout(function () {
-        }, 500);
         fetch('http://localhost:8080/dados')
             .then(function (res) { return isOk(res); })
             .then(function (res) { return res.json(); })
@@ -66,6 +62,9 @@ var NegociacaoController = /** @class */ (function () {
     __decorate([
         index_3.domInject('#valor')
     ], NegociacaoController.prototype, "_inputValor");
+    __decorate([
+        index_3.throttle(500)
+    ], NegociacaoController.prototype, "importaDados");
     return NegociacaoController;
 }());
 exports.NegociacaoController = NegociacaoController;

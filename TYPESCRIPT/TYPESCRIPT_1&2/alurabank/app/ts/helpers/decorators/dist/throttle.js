@@ -12,6 +12,8 @@ function throttle(milissegundos) {
             for (var _i = 0; _i < arguments.length; _i++) {
                 args[_i] = arguments[_i];
             }
+            if (event)
+                event.preventDefault();
             clearInterval(timer);
             timer = setTimeout(function () { return metodoOriginal.apply(_this, args); }, milissegundos);
         };

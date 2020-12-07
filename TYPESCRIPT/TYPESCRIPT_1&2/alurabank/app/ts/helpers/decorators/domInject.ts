@@ -1,5 +1,3 @@
-// app/ts/helpers/decorators/domInject.ts 
-
 export function domInject(seletor: string) {
 
     return function(target: any, key: string) {

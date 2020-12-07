@@ -1,5 +1,4 @@
 "use strict";
-// app/ts/helpers/decorators/domInject.ts 
 exports.__esModule = true;
 exports.domInject = void 0;
 function domInject(seletor) {
