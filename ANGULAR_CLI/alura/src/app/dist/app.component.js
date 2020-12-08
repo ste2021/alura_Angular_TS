@@ -10,9 +10,16 @@ exports.AppComponent = void 0;
 var core_1 = require("@angular/core");
 var AppComponent = /** @class */ (function () {
     function AppComponent() {
-        this.title = 'Welcome';
-        this.descritpion = 'Leão';
-        this.url = "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Sultan_the_Barbary_Lion.jpg/440px-Sultan_the_Barbary_Lion.jpg";
+        this.photos = [
+            {
+                url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Sultan_the_Barbary_Lion.jpg/440px-Sultan_the_Barbary_Lion.jpg',
+                description: 'Leão'
+            },
+            {
+                url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Lioness_Etosha_NP.jpg/500px-Lioness_Etosha_NP.jpg',
+                description: 'Leoa'
+            }
+        ];
     }
     AppComponent = __decorate([
         core_1.Component({

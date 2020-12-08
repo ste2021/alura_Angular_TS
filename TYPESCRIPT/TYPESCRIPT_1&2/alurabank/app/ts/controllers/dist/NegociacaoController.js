@@ -10,12 +10,13 @@ exports.NegociacaoController = void 0;
 var index_1 = require("../views/index");
 var index_2 = require("../models/index");
 var index_3 = require("../helpers/decorators/index");
-var timer = 0;
+var index_4 = require("../services/index");
 var NegociacaoController = /** @class */ (function () {
     function NegociacaoController() {
         this._negociacoes = new index_2.Negociacoes();
         this._negociacoesView = new index_1.NegociacoesView('#negociacoesView');
         this._mensagemView = new index_1.MensagemView('#mensagemView');
+        this._service = new index_4.NegociacaoService();
         this._negociacoesView.update(this._negociacoes);
     }
     NegociacaoController.prototype.adiciona = function () {
@@ -34,24 +35,21 @@ var NegociacaoController = /** @class */ (function () {
     };
     NegociacaoController.prototype.importaDados = function () {
         var _this = this;
-        //pr saber se der erro no status da chamada
-        function isOk(res) {
+        this._service
+            .obterNegociacoes(function (res) {
             if (res.ok) {
                 return res;
             }
             else {
                 throw new Error(res.statusText);
             }
-        }
-        fetch('http://localhost:8080/dados')
-            .then(function (res) { return isOk(res); })
-            .then(function (res) { return res.json(); })
-            .then(function (dados) {
-            dados
-                .map(function (dado) { return new index_2.Negociacao(new Date(), dado.vezes, dado.montante); })
-                .forEach(function (negociacao) { return _this._negociacoes.adiciona(negociacao); });
+        })
+            .then(function (negociacoes) {
+            negociacoes.forEach(function (negociacao) {
+                return _this._negociacoes.adiciona(negociacao);
+            });
             _this._negociacoesView.update(_this._negociacoes);
-        })["catch"](function (err) { return console.log(err.message); });
+        });
     };
     __decorate([
         index_3.domInject('#data')
@@ -63,12 +61,14 @@ var NegociacaoController = /** @class */ (function () {
         index_3.domInject('#valor')
     ], NegociacaoController.prototype, "_inputValor");
     __decorate([
-        index_3.throttle(500)
+        index_3.throttle()
+    ], NegociacaoController.prototype, "adiciona");
+    __decorate([
+        index_3.throttle()
     ], NegociacaoController.prototype, "importaDados");
     return NegociacaoController;
 }());
 exports.NegociacaoController = NegociacaoController;
-//pra impedir que as negociacoes sejam feitos em dias não úteis
 var DiaDaSemana;
 (function (DiaDaSemana) {
     DiaDaSemana[DiaDaSemana["Domingo"] = 0] = "Domingo";

@@ -10,7 +10,7 @@ exports.AppModule = void 0;
 var platform_browser_1 = require("@angular/platform-browser");
 var core_1 = require("@angular/core");
 var app_component_1 = require("./app.component");
-var photo_component_1 = require("./photo/photo.component");
+var photos_module_1 = require("./photos/photos.module");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -18,10 +18,10 @@ var AppModule = /** @class */ (function () {
         core_1.NgModule({
             declarations: [
                 app_component_1.AppComponent,
-                photo_component_1.PhotoComponent
             ],
             imports: [
-                platform_browser_1.BrowserModule
+                platform_browser_1.BrowserModule,
+                photos_module_1.PhotosModule
             ],
             providers: [],
             bootstrap: [app_component_1.AppComponent]
