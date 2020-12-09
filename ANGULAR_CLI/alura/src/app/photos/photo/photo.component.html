@@ -1,1 +1,11 @@
-<img class="img-thumbnail" [src]="url" [alt]="description">
+<ol class="list-unstyled row">
+    <li *ngFor="let photo of photos" class="col-4">
+        <ap-photo
+            [url]="photo.url"
+            [description]="photo.description">
+        </ap-photo>
+    </li>
+</ol>
+
+
+<!-- Fazendo desse jeito não precisa usar Data Blinding, e não precisa escrever todas as fotos, por ex se tiver 100 fotos, fica apenas um código -->

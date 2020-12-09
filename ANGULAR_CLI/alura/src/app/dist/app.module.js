@@ -11,6 +11,8 @@ var platform_browser_1 = require("@angular/platform-browser");
 var core_1 = require("@angular/core");
 var app_component_1 = require("./app.component");
 var photos_module_1 = require("./photos/photos.module");
+var app_routing_module_1 = require("./app.routing.module");
+var errors_module_1 = require("./errors/errors.module");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -21,7 +23,9 @@ var AppModule = /** @class */ (function () {
             ],
             imports: [
                 platform_browser_1.BrowserModule,
-                photos_module_1.PhotosModule
+                photos_module_1.PhotosModule,
+                app_routing_module_1.AppRoutingModule,
+                errors_module_1.ErrorsModule
             ],
             providers: [],
             bootstrap: [app_component_1.AppComponent]
