@@ -1,13 +1,10 @@
 <ol class="list-unstyled">
-  <li *ngFor="let photo of rows" class="row">
-    <div*ngFor="let photo of rows class="col-4">
-      <ap-photo
-          [url]="photo.url"
-          [description]="photo.description">
-      </ap-photo>
-    </div>  
-  </li>
+    <li *ngFor="let cols of rows" class="row">
+        <div *ngFor="let photo of cols" class="col-4">
+            <ap-photo 
+                [url]="photo.url" 
+                [description]="photo.description">
+            </ap-photo>
+        </div>
+    </li>
 </ol>
-
-
-<!-- Fazendo desse jeito não precisa usar Data Blinding, e não precisa escrever todas as fotos, por ex se tiver 100 fotos, fica apenas um código -->
